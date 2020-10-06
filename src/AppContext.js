@@ -2,36 +2,43 @@ import React, { createContext, useEffect, useReducer } from 'react';
 
 export const AppContext = createContext();
 
+// The main array
 const allTasks = [];
 
+// Function checks whether the given {id} from Form exists.
 const checkId = (tasks, action) => {
+   const { id, title, description, priority, onCreateDate } = action.task;
 
-   const idx = action.task.id;
+   const idx = id;
    const isTheSameId = Boolean(tasks.find(task => task.id === idx));
 
    if (isTheSameId) {
-      const newIdx = Math.floor(Math.random() * 99999999999) + action.task.title;
+      // Creating new Id
+      const newIdx = Math.floor(Math.random() * 99999999999) + title;
 
       action.task = {
          id: newIdx,
-         title: action.task.title,
-         description: action.task.description,
-         priority: action.task.priority,
-         onCreateDate: action.task.onCreateDate,
-
+         title,
+         description,
+         priority,
+         onCreateDate,
       }
+
       return [...tasks, action.task];
    }
+
    else {
       return [...tasks, action.task];
    }
 
 }
 
+// Function delete task by id
 const handleDelete = (tasks, action) => {
    const newTasksTab = tasks.filter(task => task.id !== action);
    return [...newTasksTab];
 }
+
 
 const AppProvider = ({ children }) => {
    const tasksReducer = (tasks, action) => {

@@ -1,10 +1,10 @@
 import React from 'react';
-//PROVIDER
+// PROVIDER
 import AppProvider from './AppContext';
 // COMPONENTS
 import Form from './containers/Form';
 import PanelInfo from './containers/PanelInfo';
-//STYLES
+// STYLES
 import './main-styles/App.scss';
 
 

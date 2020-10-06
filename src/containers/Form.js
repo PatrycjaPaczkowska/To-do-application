@@ -1,19 +1,22 @@
-//ANIMACJE I STYLE
-import { motion } from "framer-motion";
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
+//ANIMACJE I STYLE
 import '../main-styles/Form.scss';
-
+import { motion } from "framer-motion";
 
 const Form = () => {
+   // eslint-disable-next-line
    const { tasks, dispatch } = useContext(AppContext);
 
+   // Value from Form
    const [textTask, setTextTask] = useState("");
    const [textareaTask, setTextareaTask] = useState("");
    const [isPriority, setIsPriority] = useState(false);
 
+   // Value for warning
    const [notEnoughLetters, setNotEnoughLetter] = useState(false);
 
+   // Handling the form 
    const handleAllValue = (e) => {
       const name = e.target.name;
       const value = e.target.value;
@@ -31,12 +34,17 @@ const Form = () => {
 
    }
 
+   // Handling creating a new task - transmission to the context
    const handleAllForm = (e) => {
       e.preventDefault();
 
+      // ID drawing
       const newId = Math.floor(Math.random() * 999999999999999999) + textTask;
+
+      // Get a creating date
       const onCreateDate = new Date().toLocaleString();
 
+      // Test length of title/textTask
       if (textTask.length < 5) {
          setNotEnoughLetter(true);
          return;
@@ -57,6 +65,7 @@ const Form = () => {
          type: 'ADD'
       });
 
+      // Reset Value on Form
       setTextTask("");
       setTextareaTask("");
       setIsPriority(isPriority => isPriority = false);
@@ -74,7 +83,7 @@ const Form = () => {
       visible: { opacity: 1 }
    }
 
-   const notEnoughLettersWarning = notEnoughLetters && <motion.span initial="hidden" animate="visible" variants={variants} style={styleOfWarning}>Minimalna długość tekstu to 5 znaków</motion.span>;
+   const notEnoughLettersWarning = notEnoughLetters && <motion.span initial="hidden" animate="visible" variants={variants} style={styleOfWarning}>The minimum text length is 5 characters</motion.span>;
 
    return (
       <div className="App_creatorTask">

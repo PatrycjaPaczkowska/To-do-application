@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
-import '../main-styles/PanelInfo.scss';
+// Components
 import ToDo from "./ToDo";
+// Styles
+import '../main-styles/PanelInfo.scss';
 
 
 const PanelInfo = () => {
    const { tasks, dispatch } = useContext(AppContext);
   
-
    const tasksList = tasks.map(task => <ToDo handlerDelButton={dispatch} task={task} key={task.id} />);
 
    return (
