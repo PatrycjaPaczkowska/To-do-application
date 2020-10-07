@@ -43,6 +43,7 @@
 
       &--button {
          @extend %baseOfButton;
+         margin: $main-value-space/3;
          min-width: $universal-size;
          height: $universal-size;
       }

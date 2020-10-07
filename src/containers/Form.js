@@ -71,7 +71,7 @@ const Form = () => {
       setTextTask("");
       setTextareaTask("");
       setIsPriority(isPriority => isPriority = false);
-      if(sizeOfWindow) setClickedPlus(false);
+      if(sizeOfWindow) setClickedPlus(true);
    }
 
    const styleOfWarning = {
