@@ -10,11 +10,14 @@ const PanelInfo = () => {
    const { tasks, dispatch } = useContext(AppContext);
   
    const tasksList = tasks.map(task => <ToDo handlerDelButton={dispatch} task={task} key={task.id} />);
-
+   const panelInfoContainer = <div className="App_panelInfo">{tasksList}</div>;
+   
    return (
-      <div className="App_panelInfo">
-         {tasksList}
-      </div>
+
+      <>
+      {tasksList.length ? panelInfoContainer : null}
+      </>
+      
    );
 }
 

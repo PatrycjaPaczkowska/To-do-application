@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import { motion } from "framer-motion";
+import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../AppContext';
 // Animation and stylea
 import '../main-styles/main.scss';
-import { motion } from "framer-motion";
 
 const Form = () => {
    // eslint-disable-next-line
@@ -15,6 +15,8 @@ const Form = () => {
 
    // Value for warning
    const [notEnoughLetters, setNotEnoughLetter] = useState(false);
+   const [clickedPlus, setClickedPlus] = useState(false);
+   const sizeOfWindow = window.matchMedia('(max-width: 400px)');
 
    // Handling the form 
    const handleAllValue = (e) => {
@@ -69,6 +71,7 @@ const Form = () => {
       setTextTask("");
       setTextareaTask("");
       setIsPriority(isPriority => isPriority = false);
+      if(sizeOfWindow) setClickedPlus(false);
    }
 
    const styleOfWarning = {
@@ -85,45 +88,74 @@ const Form = () => {
 
    const notEnoughLettersWarning = notEnoughLetters && <motion.span initial="hidden" animate="visible" variants={variants} style={styleOfWarning}>The minimum text length is 5 characters</motion.span>;
 
+   const plusStyle = {
+      display: clickedPlus ? 'none' : 'block',
+   }
+
+   const containerFormStyle = {
+      display: clickedPlus ? 'block' : 'none'
+   }
+
+   const handleContainerToggle = () => {
+      setClickedPlus(true);
+   }
+
+ 
+
+   useEffect(() => {
+      if (sizeOfWindow.matches) {
+         setClickedPlus(false)
+      } else {
+         setClickedPlus(true)
+      }
+   }, []);
+
+
    return (
       <div className="App_creatorTask">
          <h2 className="App_creatorTask--title">Create new task</h2>
 
-         <input
-            className="App_creatorTask--input"
-            type="text"
-            placeholder="What do you want to do?"
-            name="textTask"
-            value={textTask}
-            onChange={handleAllValue}
-         />
-         {notEnoughLettersWarning}
-         <input
-            className="App_creatorTask--input"
-            type="textarea"
-            placeholder="Describe (optional)"
-            name="textareaTask"
-            value={textareaTask}
-            onChange={handleAllValue}
-         />
+         <p className="App_creatorTask--plus" onClick={handleContainerToggle} style={plusStyle}>+</p>
 
-         <p className="App_creatorTask--paragraph">Priority?
-         <input
-               className="App_creatorTask--paragraph--input"
-               type="checkbox"
-               name="isPriority"
-               checked={isPriority}
-               onClick={handleAllValue}
-
+         <div className="App_creatorTask--containerForm" style={containerFormStyle}>
+            <input
+               className="App_creatorTask--input"
+               type="text"
+               placeholder="What do you want to do?"
+               name="textTask"
+               value={textTask}
+               onChange={handleAllValue}
             />
-         </p>
 
-         <button
-            className="App_creatorTask--button"
-            onClick={handleAllForm}
-         >
-            Create
+            {notEnoughLettersWarning}
+
+            <input
+               className="App_creatorTask--input"
+               type="textarea"
+               placeholder="Describe (optional)"
+               name="textareaTask"
+               value={textareaTask}
+               onChange={handleAllValue}
+            />
+
+            <p className="App_creatorTask--paragraph">Priority?
+         <input
+                  className="App_creatorTask--paragraph--input"
+                  type="checkbox"
+                  name="isPriority"
+                  checked={isPriority}
+                  onClick={handleAllValue}
+
+               />
+            </p>
+
+            <button
+               className="App_creatorTask--button"
+               onClick={handleAllForm}
+            >
+               Create
          </button>
+         </div>
       </div>
    );
 }

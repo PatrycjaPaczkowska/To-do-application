@@ -12,10 +12,35 @@
       height: auto;
    }
 
-   @media all and (max-width: 300px) {}
+
 
    &--title {
       margin: $main-value-space;
+   }
+
+   &--containerForm {
+      @media all and (max-width: 400px) {
+         display: none;
+      }
+   }
+
+   &--plus {
+      display: none;
+      font-size: 4em;
+      color: #ffffff;
+      text-shadow: 2px 2px 0px #3333335b, 5px 4px 0px rgba(0, 0, 0, 0.247);
+
+      cursor: pointer;
+      transition: text-shadow .1s;
+
+      &:hover {
+         text-shadow: 1px 1px 0px #3333335b, 3px 2px 0px rgba(0, 0, 0, 0.4);
+      }
+
+      @media all and (max-width: 400px) {
+         display: block;
+      }
+
    }
 
    &--input {
