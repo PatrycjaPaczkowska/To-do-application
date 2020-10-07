@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
-//ANIMACJE I STYLE
-import '../main-styles/Form.scss';
+// Animation and stylea
+import '../main-styles/main.scss';
 import { motion } from "framer-motion";
 
 const Form = () => {

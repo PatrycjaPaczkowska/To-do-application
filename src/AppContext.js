@@ -2,6 +2,10 @@ import React, { createContext, useEffect, useReducer } from 'react';
 
 export const AppContext = createContext();
 
+const ADD = 'ADD';
+const DELETE = 'DELETE';
+const FETCH = 'FETCH';
+
 // The main array
 const allTasks = [];
 
@@ -44,11 +48,11 @@ const AppProvider = ({ children }) => {
    const tasksReducer = (tasks, action) => {
 
       switch (action.type) {
-         case 'ADD':
+         case ADD:
             return checkId(tasks, action);
-         case 'DELETE':
+         case DELETE:
             return handleDelete(tasks, action.id);
-         case 'FETCH':
+         case FETCH:
             return action.data;
          default:
             throw new Error("Nie znaleziono akcji w coursesReducer")
@@ -59,7 +63,7 @@ const AppProvider = ({ children }) => {
    const [tasks, dispatch] = useReducer(tasksReducer, []);
 
    useEffect(() => {
-      dispatch({ type: 'FETCH', data: allTasks })
+      dispatch({ type: FETCH, data: allTasks })
    }, [])
 
 

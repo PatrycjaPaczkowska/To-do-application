@@ -1,0 +1,24 @@
+.App {
+   min-height: 100vh;
+
+   background-color: $main-color;
+   color: $text-main-color;
+   font-family: Quicksand, sans-serif;
+   text-align: center;
+   font-size: $main-font-size;
+
+   &_title {
+      padding: 5vh 0;
+      color: $text-second-color;
+      transition: .1s;
+
+      &:hover {
+         color: $text-main-color;
+      }
+   }
+
+   &_containers {
+      display: flex;
+      justify-content: center;
+   }
+}

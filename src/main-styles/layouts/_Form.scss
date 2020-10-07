@@ -1,0 +1,51 @@
+.App_creatorTask {
+   @extend %structureOfBoxes;
+   height: 350px;
+
+   &:hover {
+      background-color: $hover-color;
+   }
+
+   &--title {
+      margin: $main-value-space;
+   }
+
+   &--input {
+      width: 80%;
+      margin: $main-value-space/2 auto;
+      padding: $main-value-space/2 $main-value-space;
+      
+      border: none;
+      border-bottom: 1px solid $text-second-color;
+      border-radius: 2px;
+
+      background: $main-color;
+      color: $text-main-color;
+   }
+
+   &--paragraph {
+      width: 60%;
+      margin: 0 auto;
+      padding: $main-value-space/2 $main-value-space;
+
+      &--input {
+         margin: $main-value-space*0.75;
+         padding: $main-value-space;
+
+         border: none;
+         border-bottom: 1px solid $text-second-color;
+         border-radius: 2px;
+
+         background: $main-color;
+         color: $text-main-color;
+      }
+   }
+
+   &--button {
+      @extend %baseOfButton;
+
+      width: 20%;
+      margin: 0 auto;
+      padding: $main-value-space/2;
+   }
+}

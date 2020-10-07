@@ -1,0 +1,62 @@
+.App_panelInfo {
+   @extend %structureOfBoxes;
+
+   &:hover {
+      background-color: $hover-color;
+   }
+
+   &--task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      padding: $main-value-space;
+      border-radius: 3px;
+
+      &--container {
+         display: flex;
+         justify-content: space-between;
+         width: 100%;
+      }
+
+      &--text {
+         transition: .2s;
+         cursor: pointer;
+
+         &:hover {
+            color: $text-second-color;
+         }
+      }
+
+      &--description {
+         margin-top: $main-value-space/4;
+         text-align: left;
+         font-size: 0.7em;
+      }
+
+      &--button {
+         @extend %baseOfButton;
+         min-width: $universal-size;
+         height: $universal-size;
+      }
+
+      &--date {
+         @extend %styleTexts;
+         color: $text-main-color;
+
+         &--finish {
+            @extend %styleTexts;
+            width: 100%;
+            color: $text-second-color;
+         }
+      }
+
+      &:hover {
+         background-color: $hover-color-bgc;
+      }
+   }
+
+
+
+}

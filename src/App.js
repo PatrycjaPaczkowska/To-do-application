@@ -5,7 +5,7 @@ import AppProvider from './AppContext';
 import Form from './containers/Form';
 import PanelInfo from './containers/PanelInfo';
 // STYLES
-import './main-styles/App.scss';
+import './main-styles/main.scss';
 
 
 function App() {

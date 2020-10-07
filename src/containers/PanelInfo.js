@@ -3,7 +3,7 @@ import { AppContext } from '../AppContext';
 // Components
 import ToDo from "./ToDo";
 // Styles
-import '../main-styles/PanelInfo.scss';
+import '../main-styles/main.scss';
 
 
 const PanelInfo = () => {
