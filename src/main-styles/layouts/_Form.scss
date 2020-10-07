@@ -6,6 +6,14 @@
       background-color: $hover-color;
    }
 
+   @media all and (max-width: 800px) {
+      margin: 0 auto;
+      width: 80%;
+      height: auto;
+   }
+
+   @media all and (max-width: 300px) {}
+
    &--title {
       margin: $main-value-space;
    }
@@ -14,7 +22,7 @@
       width: 80%;
       margin: $main-value-space/2 auto;
       padding: $main-value-space/2 $main-value-space;
-      
+
       border: none;
       border-bottom: 1px solid $text-second-color;
       border-radius: 2px;
@@ -47,5 +55,10 @@
       width: 20%;
       margin: 0 auto;
       padding: $main-value-space/2;
+
+      @media all and (max-width: 420px) {
+         width: 50%;
+         margin: auto;
+      }
    }
 }

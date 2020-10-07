@@ -20,5 +20,10 @@
    &_containers {
       display: flex;
       justify-content: center;
+
+      @media all and (max-width: 800px) {
+         flex-direction: column;
+      }
    }
+
 }

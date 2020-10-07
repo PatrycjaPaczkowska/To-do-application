@@ -1,6 +1,12 @@
 .App_panelInfo {
    @extend %structureOfBoxes;
 
+   @media all and (max-width: 800px) {
+      margin: $main-value-space auto;
+      width: 80%;
+      min-height: 200px;
+   }
+
    &:hover {
       background-color: $hover-color;
    }
