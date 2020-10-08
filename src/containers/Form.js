@@ -71,7 +71,8 @@ const Form = () => {
       setTextTask("");
       setTextareaTask("");
       setIsPriority(isPriority => isPriority = false);
-      if(sizeOfWindow) setClickedPlus(true);
+      if(sizeOfWindow.matches) setClickedPlus(false);
+      console.log(sizeOfWindow.matches);
    }
 
    const styleOfWarning = {
@@ -86,7 +87,7 @@ const Form = () => {
       visible: { opacity: 1 }
    }
 
-   const notEnoughLettersWarning = notEnoughLetters && <motion.span initial="hidden" animate="visible" variants={variants} style={styleOfWarning}>The minimum text length is 5 characters</motion.span>;
+   const notEnoughLettersWarning = notEnoughLetters && <motion.p initial="hidden" animate="visible" variants={variants} style={styleOfWarning}>The minimum text length is 5 characters</motion.p>;
 
    const plusStyle = {
       display: clickedPlus ? 'none' : 'block',
@@ -108,6 +109,8 @@ const Form = () => {
       } else {
          setClickedPlus(true)
       }
+      console.log(sizeOfWindow.matches);
+
    }, []);
 
 

@@ -8,7 +8,7 @@
 
    @media all and (max-width: 800px) {
       margin: 0 auto;
-      width: 80%;
+      width: 90%;
       height: auto;
    }
 
@@ -16,6 +16,11 @@
 
    &--title {
       margin: $main-value-space;
+
+      @media all and (max-width: 400px) {
+         font-size: 1em;
+         margin: $main-value-space/2;
+      }
    }
 
    &--containerForm {
@@ -26,7 +31,7 @@
 
    &--plus {
       display: none;
-      font-size: 4em;
+      font-size: 3em;
       color: #ffffff;
       text-shadow: 2px 2px 0px #3333335b, 5px 4px 0px rgba(0, 0, 0, 0.247);
 
@@ -54,6 +59,10 @@
 
       background: $main-color;
       color: $text-main-color;
+
+      @media all and (max-width: 400px) {
+         width: 100%;
+      }
    }
 
    &--paragraph {
