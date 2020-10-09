@@ -29,18 +29,20 @@ const Todo = ({ task, handlerDelButton }) => {
 
    const isTaskDone = onClickDate ? <p className="App_panelInfo--task--date--finish">Ukończono: {onClickDate}</p> : null;
 
-   const onCreateDateInfo = <span className="App_panelInfo--task--date">{onCreateDate}</span>;
+   const onCreateDateInfo = <p className="App_panelInfo--task--createDate">{onCreateDate}</p>
 
    return (
       <>
          <div className="App_panelInfo--task">
+            {onCreateDateInfo}
             <div className="App_panelInfo--task--container">
+
                <p
                   className="App_panelInfo--task--text"
                   style={styleTitle}
                   onClick={handleTaskDone}
                >
-                  {important}{title} - {onCreateDateInfo}
+                  {important}{title}
                </p>
                <button
                   className="App_panelInfo--task--button"
