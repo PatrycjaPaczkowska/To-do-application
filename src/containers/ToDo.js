@@ -31,30 +31,32 @@ const Todo = ({ task, handlerDelButton }) => {
 
    const onCreateDateInfo = <p className="App_panelInfo--task--createDate">{onCreateDate}</p>
 
+   const descriptionInfo = <p className="App_panelInfo--task--description">{description}</p>
+
    return (
       <>
          <div className="App_panelInfo--task">
             {onCreateDateInfo}
-            <div className="App_panelInfo--task--container">
+            <div className="App_panelInfo--task--maincontainer">
+               <div className="App_panelInfo--task--container">
 
-               <p
-                  className="App_panelInfo--task--text"
-                  style={styleTitle}
-                  onClick={handleTaskDone}
-               >
-                  {important}{title}
-               </p>
+                  <p
+                     className="App_panelInfo--task--text"
+                     style={styleTitle}
+                     onClick={handleTaskDone}
+                  >
+                     {important}{title}
+                  </p>
+                  {descriptionInfo}
+                  {isTaskDone}
+               </div>
+
                <button
                   className="App_panelInfo--task--button"
                   onClick={handleDeleteTask}>
                   x
                </button>
             </div>
-            <p
-               className="App_panelInfo--task--description">
-               {description}
-            </p>
-            {isTaskDone}
          </div>
       </>
    )

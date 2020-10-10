@@ -28,9 +28,15 @@
          padding: $main-value-space/2 0;
       }
 
-      &--container {
+      &--maincontainer {
          display: flex;
          justify-content: space-between;
+         width: 100%;
+      }
+
+      &--container {
+         display: flex;
+         flex-direction: column;
          width: 100%;
       }
 

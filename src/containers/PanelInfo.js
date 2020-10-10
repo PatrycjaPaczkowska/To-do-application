@@ -13,12 +13,9 @@ const PanelInfo = () => {
 
    const panelInfoContainer = <div className="App_panelInfo"><p className="App_panelInfo--info">Click on the title to strike out the task</p>{tasksList}</div>;
 
-   // const showInfo = tasksList.length ? <p className="App_panelInfo--info">Click on the title to strike out the task</p> : null;
-
    return (
 
       <>
-         {/* {showInfo} */}
          {tasksList.length ? panelInfoContainer : null}
       </>
 

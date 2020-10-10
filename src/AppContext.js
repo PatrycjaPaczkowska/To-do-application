@@ -7,7 +7,15 @@ const DELETE = 'DELETE';
 const FETCH = 'FETCH';
 
 // The main array
-const allTasks = [];
+const allTasks = [
+   {
+      id:'2d24n234n',
+title: "Próba generalna",
+description:"Trochę opisu lorem lroem ipsum don wnrqe",
+priority: false,
+onCreateDate: '2010.02.01, 15:22:33'
+   }
+];
 
 // Function checks whether the given {id} from Form exists.
 const checkId = (tasks, action) => {
