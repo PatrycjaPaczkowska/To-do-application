@@ -7,15 +7,7 @@ const DELETE = 'DELETE';
 const FETCH = 'FETCH';
 
 // The main array
-const allTasks = [
-   {
-      id:'2d24n234n',
-title: "Próba generalna",
-description:"Trochę opisu lorem lroem ipsum don wnrqe",
-priority: false,
-onCreateDate: '2010.02.01, 15:22:33'
-   }
-];
+const allTasks = [];
 
 // Function checks whether the given {id} from Form exists.
 const checkId = (tasks, action) => {
@@ -68,12 +60,19 @@ const AppProvider = ({ children }) => {
 
    }
 
-   const [tasks, dispatch] = useReducer(tasksReducer, []);
+   const [tasks, dispatch] = useReducer(tasksReducer, [], () => {
+      const localData = localStorage.getItem('tasks');
+      return localData ? JSON.parse(localData) : [];
+   });
 
+   // useEffect(() => {
+   //    dispatch({ type: FETCH, data: allTasks })
+   // }, [])
+
+   //Download value
    useEffect(() => {
-      dispatch({ type: FETCH, data: allTasks })
-   }, [])
-
+      localStorage.setItem("tasks", JSON.stringify(tasks))
+   }, [tasks]);
 
    return (
       <AppContext.Provider value={{
